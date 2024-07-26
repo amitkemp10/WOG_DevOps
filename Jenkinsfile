@@ -29,7 +29,7 @@ pipeline {
                 script {
                     docker.image("${env.DOCKER_IMAGE}").inside {
                         dir('/wog_app/tests') {
-                            sh 'python e2e.py'
+                            bat 'python e2e.py'
                         }
                     }
                 }

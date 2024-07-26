@@ -9,7 +9,7 @@ def test_scores_service():
     chrome_options = ChromiumOptions()
     service = Service(ChromeDriverManager().install(), options=chrome_options)
     driver = webdriver.Chrome(service=service)
-    driver.get("http://127.0.0.1:5000")
+    driver.get("http://127.0.0.1:8777")
     score_value = driver.find_element(By.XPATH, '//*[@id="score"]/h1[2]').text
     score_value = int(score_value)
     if 0 < score_value < 1001:
