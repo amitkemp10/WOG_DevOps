@@ -32,16 +32,16 @@ pipeline {
             }
         }
 
-//         stage('Finalize') {
-//             steps {
-//                 script {
-//                     bat "docker-compose down"
-//                     withDockerRegistry(credentialsId: 'dockerhub-credentials-id', url: 'https://index.docker.io/v1/') {
-//                         docker.image("${env.DOCKER_IMAGE}").push("v1.0")
-//                     }
-//                 }
-//             }
-//         }
+        stage('Finalize') {
+            steps {
+                script {
+                    bat 'docker-compose down'
+                    withDockerRegistry(credentialsId: 'dockerhub-credentials-id', url: 'https://index.docker.io/v1/') {
+                        docker.image("${env.DOCKER_IMAGE}").push("v1.0")
+                    }
+                }
+            }
+        }
     }
 
 //     post {
