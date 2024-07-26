@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: amitkemp10/wog_app:latest
+    image: amitkemp10/wog_app:v1.0
     container_name: wog_app_container
     command: python main_score.py
     volumes:
