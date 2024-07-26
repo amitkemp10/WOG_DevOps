@@ -44,10 +44,10 @@ pipeline {
 //         }
     }
 
-    post {
-        always {
-            cleanWs()
-            bat "docker system prune -af || true"
-        }
-    }
+//     post {
+//         always {
+//             cleanWs()
+//             bat "docker system prune -af || true"
+//         }
+//     }
 }
