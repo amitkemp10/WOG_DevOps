@@ -16,10 +16,10 @@ def score_server():
         print(f"Error reading score: {e}")
 
     if score == BAD_RETURN_CODE:
-        content = f"<h1>ERROR: {score}</h1>"
+        content = f"<h1 style='display: inline;'>ERROR: </h1><h1 style='display: inline;'>{score}</h1>"
         color = "red"
     else:
-        content = f"<h1>The score is: {score}</h1>"
+        content = f"<h1 style='display: inline;'>The score is: </h1><h1 style='display: inline;'>{score}</h1>"
         color = "black"
 
     html_content = f"""
