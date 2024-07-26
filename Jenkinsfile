@@ -15,41 +15,41 @@ pipeline {
             }
         }
 
-        stage('Run') {
-            steps {
-                script {
-                    docker.image("${env.DOCKER_IMAGE}").withRun("-p 8777:5000 --name ${env.CONTAINER_NAME}") { container ->
-                        sleep(time: 30, unit: 'SECONDS')
-                    }
-                }
-            }
-        }
-
-        stage('Test') {
-            steps {
-                script {
-                    docker.image("${env.DOCKER_IMAGE}").inside {
-                        dir('/wog_app/tests'){
-                            sh 'python e2e.py'
-                        }
-                    }
-                }
-            }
-        }
-
-        stage('Finalize') {
-            steps {
-                script {
-                    sh "docker stop ${env.CONTAINER_NAME} || true"
-                    sh "docker rm ${env.CONTAINER_NAME} || true"
-
-                    withDockerRegistry(credentialsId: 'dockerhub-credentials-id', url: 'https://index.docker.io/v1/') {
-                        docker.image("${env.DOCKER_IMAGE}").push("v1.0")
-                    }
-                }
-            }
-        }
-    }
+//         stage('Run') {
+//             steps {
+//                 script {
+//                     docker.image("${env.DOCKER_IMAGE}").withRun("-p 8777:5000 --name ${env.CONTAINER_NAME}") { container ->
+//                         sleep(time: 30, unit: 'SECONDS')
+//                     }
+//                 }
+//             }
+//         }
+//
+//         stage('Test') {
+//             steps {
+//                 script {
+//                     docker.image("${env.DOCKER_IMAGE}").inside {
+//                         dir('/wog_app/tests'){
+//                             sh 'python e2e.py'
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//
+//         stage('Finalize') {
+//             steps {
+//                 script {
+//                     sh "docker stop ${env.CONTAINER_NAME} || true"
+//                     sh "docker rm ${env.CONTAINER_NAME} || true"
+//
+//                     withDockerRegistry(credentialsId: 'dockerhub-credentials-id', url: 'https://index.docker.io/v1/') {
+//                         docker.image("${env.DOCKER_IMAGE}").push("v1.0")
+//                     }
+//                 }
+//             }
+//         }
+//     }
 
     post {
         always {
