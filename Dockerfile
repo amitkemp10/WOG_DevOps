@@ -1,6 +1,6 @@
 FROM python:alpine
 RUN pip install flask
-RUN pip pip install selenium
+RUN pip install selenium
 RUN pip install webdriver-manager
 WORKDIR /wog_app
 COPY main_score.py .
