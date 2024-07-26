@@ -29,7 +29,7 @@ pipeline {
                 script {
                     docker.image("${env.DOCKER_IMAGE}").inside {
                         dir('/wog_app/tests') {
-                            sh 'python e2e.py'
+                            bat 'python e2e.py'
                         }
                     }
                 }
@@ -51,7 +51,7 @@ pipeline {
     post {
         always {
             cleanWs()
-            sh "docker system prune -af || true"
+            bat "docker system prune -af || true"
         }
     }
 }
