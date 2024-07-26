@@ -12,4 +12,4 @@ services:
       - .:/wog_app
       - ./Scores.txt:/wog_app/Scores.txt
     ports:
-      - "8777:8777"
+      - "8777:5000"

@@ -18,7 +18,7 @@ pipeline {
         stage('Run') {
             steps {
                 script {
-                    docker.image("${env.DOCKER_IMAGE}").withRun("-p 8777:8777 --name ${env.CONTAINER_NAME}") { container ->
+                    docker.image("${env.DOCKER_IMAGE}").withRun("-p 8777:5000 --name ${env.CONTAINER_NAME}") { container ->
                         sleep(time: 30, unit: 'SECONDS')
                     }
                 }
