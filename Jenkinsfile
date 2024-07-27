@@ -5,7 +5,7 @@ pipeline {
         DOCKER_IMAGE = "amitkemp10/wog_app:v1.0"
         CONTAINER_NAME = "wog_app_container"
         DOCKER_USERNAME = "amitkemp10"
-        DOCKER_PASSWORD = "Ak206078537$@"
+        DOCKER_PASSWORD = "Ak206078537\$@"
     }
 
     stages {
