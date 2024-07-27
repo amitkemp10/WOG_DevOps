@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     bat 'docker-compose down'
-                    withDockerRegistry(credentialsId: 'f9af52af-4330-49f8-bd03-7464b52334c0', url: 'https://index.docker.io/v1/') {
+                    withDockerRegistry(credentialsId: 'f9af52af-4330-49f8-bd03-7464b52334c0', url: 'https://index.docker.io/') {
                         docker.image("${env.DOCKER_IMAGE}").push("v1.0")
                     }
                 }
