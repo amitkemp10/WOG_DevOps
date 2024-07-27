@@ -37,7 +37,6 @@ pipeline {
                 script {
                     bat 'docker-compose down'
                     bat 'docker push %DOCKER_IMAGE%'
-                    }
                 }
             }
         }
