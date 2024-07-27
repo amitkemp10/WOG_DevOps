@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     bat 'docker-compose up -d'
-                    sleep(time: 30, unit: 'SECONDS')
+                    sleep(time: 10, unit: 'SECONDS')
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     bat 'docker-compose down'
-                    withDockerRegistry(credentialsId: 'dockerhub-credentials-id', url: 'https://index.docker.io/v1/') {
+                    withDockerRegistry(credentialsId: 'c184fc2b-2454-46f8-a520-086be4d9e581', url: 'https://index.docker.io/v1/') {
                         docker.image("${env.DOCKER_IMAGE}").push("v1.0")
                     }
                 }
